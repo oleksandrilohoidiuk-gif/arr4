@@ -1,0 +1,30 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+function printFromTo(a, b) {
+    process.stdout.write(a + ' ');
+
+    if (a === b) {
+        return;
+    }
+
+    if (a < b) {
+        printFromTo(a + 1, b);
+    } else {
+        printFromTo(a - 1, b);
+    }
+}
+
+rl.question('Введіть A: ', (answerA) => {
+    rl.question('Введіть B: ', (answerB) => {
+        const a = Number(answerA);
+        const b = Number(answerB);
+        printFromTo(a, b);
+        console.log();
+        rl.close();
+    });
+});
